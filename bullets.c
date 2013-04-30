@@ -33,30 +33,31 @@ void* initbullet(void)                           /*returns the address of the fi
 }
 
 
-void* nextusablebullet(bullet_t *bullet)
+void* nextusablebullet(bullet_t *bullet)      /*gives address of the next usable bullet*/
 {
   while(!(bullet->last))
     for(;bullet->fired;bullet=bullet->next);
   return bullet;
 }
 
-void* nextbullet(bullet_t *bullet)
+void* nextbullet(bullet_t *bullet)           /*a tad un-needed but it might make things easier to understand... maybe... i hope...*/
 {
   bullet = bullet->next;
   return bullet;
 }
   
-void inertia(bullet_t *bullet)
+void inertia(bullet_t *bullet)                /*TODO: move this into its own file, it isnt just for bullets*/
 {
   while(!(bullet->last))
     {
-      bullet->x++;
+      if(bullet->fired)
+	bullet->x++;                              /*may be wrong, x is accross right?*/
       bullet=nextbullet(bullet);
     }
   bullet->x++;
 }
 
-void freebullets(bullet_t *bullet)
+void freebullets(bullet_t *bullet)            /*deallocate all of the bullets, i do not know iif this works, nor do i know how to test it...*/
 {
   bullet_t *first;
   first = bullet;
@@ -72,4 +73,12 @@ void freebullets(bullet_t *bullet)
       bullet=first;
     }
   free(bullet);
+}
+
+void firebullet(bullet_t *bullet)
+{
+  bullet = nextusablebullet(bullet);
+  bullet->fired = true;
+  bullet->x = x+1;                                 /*almost guaranteed to change, i may have x and y the wrong way round...*/
+  bullet->y = y;
 }
