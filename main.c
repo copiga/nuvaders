@@ -5,6 +5,7 @@
 #include "debug.h"
 #include "globals.c" /*x,y,maxx,maxy*/
 #include "bullets.c" /*bullet related functions*/
+#include "gameloop.c"
 
 int main(void)
 {
