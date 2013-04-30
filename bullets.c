@@ -46,16 +46,7 @@ void* nextbullet(bullet_t *bullet)           /*a tad un-needed but it might make
   return bullet;
 }
   
-void inertia(bullet_t *bullet)                /*TODO: move this into its own file, it isnt just for bullets*/
-{
-  while(!(bullet->last))
-    {
-      if(bullet->fired)
-	bullet->x++;                              /*may be wrong, x is accross right?*/
-      bullet=nextbullet(bullet);
-    }
-  bullet->x++;
-}
+
 
 void freebullets(bullet_t *bullet)            /*deallocate all of the bullets, i do not know iif this works, nor do i know how to test it...*/
 {

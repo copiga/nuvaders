@@ -4,7 +4,8 @@ void gameloop(void)
   
   while((input=getch())!=27)
     {
-      asm("nop");
+      getmaxyx(stdscr,y,x);
+      mvprintw(12,12,"%d,%d", y,x);
     }
 }
 

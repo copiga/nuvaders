@@ -6,13 +6,18 @@
 #include "globals.c" /*x,y,maxx,maxy*/
 #include "bullets.c" /*bullet related functions*/
 #include "gameloop.c"
+#include "physics.c"
 
 int main(void)
 {
-  bullet_t *bullet;
-  bullet = initbullet();
-  printf("%p", (void*)bullet);
-  freebullets(bullet);
+  initscr();
+  raw();
+  noecho();
+  halfdelay(1);
+  keypad(stdscr,true);
+  getmaxyx(stdscr,y,x);
+  gameloop();
+  endwin();
   return 0;
 }
 
