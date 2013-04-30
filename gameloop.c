@@ -1,11 +1,30 @@
 void gameloop(void)
 {
   int input;
+  bullet_t *bullet;
+  bullet=initbullet();
   
-  while((input=getch())!=27)
+  while((input=getch())!='q')
     {
-      getmaxyx(stdscr,y,x);
-      mvprintw(12,12,"%d,%d", y,x);
+      getmaxyx(stdscr,maxy,maxx);
+
+      switch(input)
+	{
+	case KEY_UP:
+	  playerup();
+	  break;
+	case KEY_DOWN:
+	  playerdown();
+	  break;
+	case ' ':
+	  firebullet(bullet);
+	  break;
+	}
+      inertia(bullet);
+      
     }
+  freebullets(bullet);
+  
 }
+
 

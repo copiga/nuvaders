@@ -1,10 +1,12 @@
-void inertia(bullet_t *bullet)                /*TODO: move this into its own file, it isnt just for bullets*/
+void inertia(bullet_t *bullet)         
 {
   while(!(bullet->last))
     {
+      mvprintw(bullet->y,bullet->x," ");
       if(bullet->fired)
 	bullet->x++;                              /*may be wrong, x is accross right?*/
       bullet=nextbullet(bullet);
+      mvprintw(bullet->y,bullet->x,"-");
     }
-  bullet->x++;
+  
 }

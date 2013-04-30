@@ -1,15 +1,5 @@
 #define BULLET_MAX 200
 
-typedef struct bullet_t
-{
-  int x;
-  int y;
-  bool fired;
-  bool last;
-  struct bullet_t *next;
-}
-  bullet_t;
-
 void* initbullet(void)                           /*returns the address of the first element in the linked list of width BULLET_MAX*/
 {
   bullet_t *bullet;
@@ -35,8 +25,7 @@ void* initbullet(void)                           /*returns the address of the fi
 
 void* nextusablebullet(bullet_t *bullet)      /*gives address of the next usable bullet*/
 {
-  while(!(bullet->last))
-    for(;bullet->fired;bullet=bullet->next);
+  for(;bullet->fired;bullet=nextbullet(bullet));
   return bullet;
 }
 
@@ -46,8 +35,6 @@ void* nextbullet(bullet_t *bullet)           /*a tad un-needed but it might make
   return bullet;
 }
   
-
-
 void freebullets(bullet_t *bullet)            /*deallocate all of the bullets, i do not know iif this works, nor do i know how to test it...*/
 {
   bullet_t *first;
@@ -56,7 +43,7 @@ void freebullets(bullet_t *bullet)            /*deallocate all of the bullets, i
     {
       while(!(bullet->next->last))
 	{
-	  bullet=bullet->next;
+	  bullet=nextbullet(bullet);
 	}
       free(bullet->next);
       bullet->last=true;
@@ -72,4 +59,5 @@ void firebullet(bullet_t *bullet)
   bullet->fired = true;
   bullet->x = x+1;                                 /*almost guaranteed to change, i may have x and y the wrong way round...*/
   bullet->y = y;
+  mvprintw(bullet->y,bullet->x,"-");
 }
