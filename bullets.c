@@ -26,7 +26,7 @@ void* initbullet(void)                           /*returns the address of the fi
       bullet->fired=false;
       bullet->last=false;
       bullet=bullet->next;
-      printf("%d\n", i);
+      DEBUG_PRINT("%d\n", i);
     }
   bullet->last=true;
   return firstbullet;

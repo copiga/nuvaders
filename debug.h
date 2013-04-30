@@ -1,5 +1,5 @@
 #ifndef NDEBUG
-#define debug(x) printf(x)
+#define DEBUG_PRINT printf
 #else
-#define debug(x) ;
+#define DEBUG_PRINT
 #endif
