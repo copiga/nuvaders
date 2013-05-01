@@ -1,9 +1,10 @@
 void gameloop(void)
 {
   int input;
-  bullet_t *bullet;
+  static bullet_t *bullet;
+
   bullet=initbullet();
-  
+  const void *bulletbase = bullet;  
   while((input=getch())!='q')
     {
       getmaxyx(stdscr,maxy,maxx);
@@ -20,11 +21,10 @@ void gameloop(void)
 	  firebullet(bullet);
 	  break;
 	}
-      inertia(bullet);
-      
+      inertia(bullet);/*has a weird bug...*/
+      bulletedgedetect(bullet);
     }
   freebullets(bullet);
-  
 }
 
 

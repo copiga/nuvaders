@@ -16,7 +16,7 @@ int main(void)
   initscr();
   raw();
   noecho();
-  halfdelay(1);
+  halfdelay(10);
   keypad(stdscr,true);
   getmaxyx(stdscr,maxy,maxx);
   y=maxy/2;

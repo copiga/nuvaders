@@ -57,7 +57,9 @@ void firebullet(bullet_t *bullet)
 {
   bullet = nextusablebullet(bullet);
   bullet->fired = true;
-  bullet->x = x+1;                                 /*almost guaranteed to change, i may have x and y the wrong way round...*/
+  bullet->x = x+1;           
   bullet->y = y;
   mvprintw(bullet->y,bullet->x,"-");
 }
+
+
