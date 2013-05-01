@@ -7,3 +7,5 @@ void freebullets(bullet_t *bullet);
 void firebullet(bullet_t *bullet);
 void inertia(bullet_t *bullet);
 void bulletedgedetect(bullet_t *bullet);
+void playerright(void);
+void playerleft(void);

@@ -8,7 +8,6 @@ void gameloop(void)
   while((input=getch())!='q')
     {
       getmaxyx(stdscr,maxy,maxx);
-
       switch(input)
 	{
 	case KEY_UP:
@@ -16,6 +15,12 @@ void gameloop(void)
 	  break;
 	case KEY_DOWN:
 	  playerdown();
+	  break;
+	case KEY_LEFT:
+	  playerleft();
+	  break;
+	case KEY_RIGHT:
+	  playerright();
 	  break;
 	case ' ':
 	  firebullet(bullet);
