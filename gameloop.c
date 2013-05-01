@@ -4,7 +4,8 @@ void gameloop(void)
   static bullet_t *bullet;
 
   bullet=initbullet();
-  const void *bulletbase = bullet;  
+  const void *bulletbase = bullet;/*am i sure i understand pointers?*/
+  mvprintw(y,x,">");/*shall we see player in the beginning now?*/
   while((input=getch())!='q')
     {
       getmaxyx(stdscr,maxy,maxx);

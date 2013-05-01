@@ -4,7 +4,7 @@ void inertia(bullet_t *bullet)
   mvprintw(10,0,"%d", i);
   i++;
   
-    for(;!bullet->last;bullet=bullet->next)
+  for(;!bullet->last;bullet=nextbullet(bullet))
     {
       if(bullet->fired)
 	{
