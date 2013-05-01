@@ -10,8 +10,8 @@ void inertia(bullet_t *bullet)
 	{
 	  mvprintw(bullet->y,bullet->x," ");
 	  bullet->x+=1;        
-	  bullet=nextbullet(bullet);
 	  mvprintw(bullet->y,bullet->x,"-");
+	  bullet=nextbullet(bullet);
 	}     
     }
 }
