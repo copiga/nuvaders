@@ -1,6 +1,7 @@
 #include <ncurses.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <assert.h>
 
 #include "bulletdef.h"
 #include "prototypes.h"

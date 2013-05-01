@@ -1,7 +1,6 @@
 void inertia(bullet_t *bullet)         
 {
   static int i=0;
-  mvprintw(10,0,"%d", i);
   i++;
   
   for(;!bullet->last;bullet=nextbullet(bullet))
@@ -22,5 +21,25 @@ void bulletedgedetect(bullet_t *bullet)
       if(bullet->x>maxx)
 	bullet->fired=false;
       bullet=nextbullet(bullet);
+    }
+}
+
+void playeredgedetect(void)
+{
+  if(y>maxy-1)
+    {
+      playerup();
+    }
+  if(x>maxx-1)
+    {
+      playerleft();
+    }
+  if(x<0)
+    {
+      playerright();
+    }
+  if(y<0)
+    {
+      playerdown();
     }
 }

@@ -9,3 +9,4 @@ void inertia(bullet_t *bullet);
 void bulletedgedetect(bullet_t *bullet);
 void playerright(void);
 void playerleft(void);
+void playeredgedetect(void);

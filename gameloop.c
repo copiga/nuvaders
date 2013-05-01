@@ -29,6 +29,7 @@ void gameloop(void)
 	}
       inertia(bullet);/*has a weird bug...*/
       bulletedgedetect(bullet);
+      playeredgedetect();
     }
   freebullets(bullet);
 }
