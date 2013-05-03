@@ -11,6 +11,7 @@
 #include "gameloop.c"
 #include "physics.c"
 #include "player.c"
+#include "enemies.c"
 
 int main(void)
 {
