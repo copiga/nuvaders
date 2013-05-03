@@ -40,3 +40,31 @@ void* initenemies(void)
   return first;
 }
 
+void* nextenemy(enemy_ll *enemy)
+{
+  return enemy->next;
+}
+
+void* nextusableenemy(enemy_ll *enemy)
+{
+  for(;enemy->onscreen;enemy=nextenemy);
+  return enemy;
+}
+
+void freeenemies(enemy_ll *enemy)            /*deallocate all of the bullets, i do not know iif this works, nor do i know how to test it...*/
+{
+  enemy_ll *first;
+  first = enemy;
+  while(first->next!=NULL)
+    {
+      while(!(enemy->next->last))
+	{
+	  enemy=nextenemy(enemy);
+	}
+      free(enemy->next);
+      enemy->last=true;
+      enemy->next=NULL;
+      enemy=first;
+    }
+  free(enemy);
+}
