@@ -18,7 +18,7 @@ void bulletedgedetect(bullet_t *bullet)
 {
   while(!(bullet->last))
     {
-      if(bullet->x>maxx)
+      if(bullet->x > maxx)
 	bullet->fired=false;
       bullet=nextbullet(bullet);
     }

@@ -27,9 +27,9 @@ void gameloop(void)
 	  firebullet(bullet);
 	  break;
 	}
-      inertia(bullet);/*has a weird bug...*/
-      bulletedgedetect(bullet);
-      playeredgedetect();
+      inertia(bullet);/*makes bullets keep moving*/
+      bulletedgedetect(bullet);/*stops bullets from leaving screen*/
+      playeredgedetect();/*keeps player on screen*/
     }
   freebullets(bullet);
 }

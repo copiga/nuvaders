@@ -22,6 +22,7 @@ int main(void)
   getmaxyx(stdscr,maxy,maxx);
   y=maxy/2;
   x=maxx/4;
+  curs_set(0);
   gameloop();
   endwin();
   return 0;
