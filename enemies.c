@@ -47,7 +47,7 @@ void* nextenemy(enemy_ll *enemy)
 
 void* nextusableenemy(enemy_ll *enemy)
 {
-  for(;enemy->onscreen;enemy=nextenemy);
+  for(;enemy->onscreen;enemy=nextenemy(enemy));
   return enemy;
 }
 
@@ -84,3 +84,4 @@ void *spawnenemy(enemy_ll *enemy)
     }
   return spawning;
 }
+
