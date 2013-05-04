@@ -4,6 +4,7 @@
 #include <assert.h>
 
 #include "bulletdef.h"
+#include "enemydef.h"
 #include "prototypes.h"
 #include "debug.h"
 #include "globals.c" /*x,y,maxx,maxy*/

@@ -1,24 +1,5 @@
 #define ENEMY_MAX 200
 
-typedef enum enemytype_e
-  {
-    hash,
-    at,
-    mirroryou
-  }
-  enemytype_e;
-
-typedef struct enemy_ll
-{
-  enemytype_e type;
-  char sprite;
-  int x;
-  int y;
-  bool last;
-  bool onscreen;
-  struct enemy_ll *next;
-}
-  enemy_ll;
 
 void* initenemies(void)
 {
@@ -69,19 +50,17 @@ void freeenemies(enemy_ll *enemy)
   free(enemy);
 }
 
-void *spawnenemy(enemy_ll *enemy)
+void spawnenemy(enemy_ll *enemy)
 {
-  enemy_ll *spawning;
-  spawning=NULL;                                                 /*MUST be tested for*/
   if(rand()%rand()==0)                                           /*some likelyish condition would be good*/
     {
-      spawning = nextusableenemy(enemy);
-      spawning->type=hash;
-      spawning->sprite='#';
-      spawning->x=maxx+(rand()%(maxx/2));
-      spawning->y=rand()%maxy;
-      spawning->onscreen=true;
+      enemy = nextusableenemy(enemy);
+      enemy->type=hash;
+      enemy->sprite='#';
+      enemy->x=maxx+(rand()%(maxx/2));
+      enemy->y=rand()%maxy;
+      enemy->onscreen=true;
+      mvprintw(enemy->y,enemy->x,"%c",enemy->sprite);
     }
-  return spawning;
 }
 

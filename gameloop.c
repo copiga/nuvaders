@@ -2,9 +2,11 @@ void gameloop(void)
 {
   int input;
   static bullet_t *bullet;
-
+  static enemy_ll *enemy;
+  enemy = initenemies();
   bullet=initbullet();
-  const void *bulletbase = bullet;/*am i sure i understand pointers?*/
+  void *enemybase = enemy;
+  void *bulletbase = bullet;/*am i sure i understand pointers?*/
   mvprintw(y,x,">");/*shall we see player in the beginning now?*/
   while((input=getch())!='q')
     {
@@ -30,7 +32,11 @@ void gameloop(void)
       inertia(bullet);/*makes bullets keep moving*/
       bulletedgedetect(bullet);/*stops bullets from leaving screen*/
       playeredgedetect();/*keeps player on screen*/
+      spawnenemy(enemy);
     }
+  bullet=bulletbase;
+  enemy=enemybase;
+  freeenemies(enemy);
   freebullets(bullet);
 }
 

@@ -10,3 +10,8 @@ void bulletedgedetect(bullet_t *bullet);
 void playerright(void);
 void playerleft(void);
 void playeredgedetect(void);
+void* initenemies(void);
+void* nextenemy(enemy_ll *enemy);
+void* nextusableenemy(enemy_ll *enemy);
+void freeenemies(enemy_ll *enemy);
+void spawnenemy(enemy_ll *enemy);

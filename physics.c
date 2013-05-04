@@ -43,3 +43,18 @@ void playeredgedetect(void)
       playerdown();
     }
 }
+
+void enemyedgedetect(enemy_ll *enemy)
+{
+  for(;enemy->last;enemy=nextenemy(enemy))
+    {
+      if(enemy->onscreen)
+	{
+	  if((enemy->x<0)||(enemy->x>maxx)||(enemy->y<0)||(enemy->y>maxy))
+	    {
+	      mvprintw(enemy->y,enemy->x," ");
+	      enemy->onscreen=false;
+	    }
+	}
+    }
+}

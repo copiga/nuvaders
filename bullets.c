@@ -34,6 +34,13 @@ void* nextbullet(bullet_t *bullet)           /*a tad un-needed but it might make
   bullet = bullet->next;
   return bullet;
 }
+
+void* nextfiredbullet(bullet_t *bullet)                       /*may need some tweaking*/
+{
+  bullet=nextbullet(bullet);
+  for(;!bullet->fired;bullet=nextbullet(bullet));
+  return bullet;
+}
   
 void freebullets(bullet_t *bullet)            /*deallocate all of the bullets, i do not know iif this works, nor do i know how to test it...*/
 {
