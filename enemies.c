@@ -51,7 +51,7 @@ void* nextusableenemy(enemy_ll *enemy)
   return enemy;
 }
 
-void freeenemies(enemy_ll *enemy)            /*deallocate all of the bullets, i do not know iif this works, nor do i know how to test it...*/
+void freeenemies(enemy_ll *enemy)
 {
   enemy_ll *first;
   first = enemy;
@@ -67,4 +67,20 @@ void freeenemies(enemy_ll *enemy)            /*deallocate all of the bullets, i 
       enemy=first;
     }
   free(enemy);
+}
+
+void *spawnenemy(enemy_ll *enemy)
+{
+  enemy_ll *spawning;
+  spawning=NULL;                                                 /*MUST be tested for*/
+  if(rand()%rand()==0)                                           /*some likelyish condition would be good*/
+    {
+      spawning = nextusableenemy(enemy);
+      spawning->type=hash;
+      spawning->sprite='#';
+      spawning->x=maxx+(rand()%(maxx/2));
+      spawning->y=rand()%maxy;
+      spawning->onscreen=true;
+    }
+  return spawning;
 }
