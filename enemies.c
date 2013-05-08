@@ -58,7 +58,7 @@ void spawnenemy(enemy_ll *enemy)
       enemy->type=hash;
       enemy->sprite='#';
       enemy->x=maxx+(rand()%(maxx/2));
-      enemy->y=rand()%maxy;
+      enemy->y=maxy-1;
       enemy->onscreen=true;
       mvprintw(enemy->y,enemy->x,"%c",enemy->sprite);
     }

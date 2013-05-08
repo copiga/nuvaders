@@ -1,7 +1,9 @@
+
 #include <ncurses.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <signal.h>
 
 #include "bulletdef.h"
 #include "enemydef.h"
@@ -14,8 +16,18 @@
 #include "player.c"
 #include "enemies.c"
 
+void cleanexit(int signal)
+{
+  endwin();
+  exit(0);
+}
+
+
 int main(void)
 {
+  int score;
+  signal(SIGINT, cleanexit);
+  
   initscr();
   raw();
   noecho();
@@ -25,8 +37,19 @@ int main(void)
   y=maxy/2;
   x=maxx/4;
   curs_set(0);
-  gameloop();
+  score=gameloop();
   endwin();
+  scoreadd(score);
   return 0;
 }
 
+void scoreadd(int score)
+{
+  char name[50];
+  FILE *scorefile;
+  puts("please enter your name");
+  scanf(" %s", name);
+  scorefile = fopen("nuvaders", "a");
+  fprintf(scorefile, "%s\t\t%d\n", name, score);
+  fclose(scorefile);
+}

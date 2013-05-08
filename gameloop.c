@@ -1,6 +1,7 @@
-void gameloop(void)
+int gameloop(void)
 {
   int input;
+  int score;
   static bullet_t *bullet;
   static enemy_ll *enemy;
   enemy = initenemies();
@@ -38,6 +39,7 @@ void gameloop(void)
   enemy=enemybase;
   freeenemies(enemy);
   freebullets(bullet);
+  return score;
 }
 
 
