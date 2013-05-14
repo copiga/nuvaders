@@ -52,13 +52,13 @@ void freeenemies(enemy_ll *enemy)
 
 void spawnenemy(enemy_ll *enemy)
 {
-  if(rand()%rand()==0)                                           /*some likelyish condition would be good*/
+  if(rand()%2==0)                                           /*some likelyish condition would be good*/
     {
       enemy = nextusableenemy(enemy);
       enemy->type=hash;
       enemy->sprite='#';
-      enemy->x=maxx+(rand()%(maxx/2));
-      enemy->y=maxy-1;
+      enemy->x=(rand()%(maxx/2));
+      enemy->y=rand()%maxy;
       enemy->onscreen=true;
       mvprintw(enemy->y,enemy->x,"%c",enemy->sprite);
     }
