@@ -1,5 +1,3 @@
-#define BULLET_MAX 200
-
 void* initbullet(void)                           /*returns the address of the first element in the linked list of width BULLET_MAX*/
 {
   bullet_t *bullet;
@@ -10,7 +8,7 @@ void* initbullet(void)                           /*returns the address of the fi
   bullet = malloc(sizeof(bullet_t));
   firstbullet=bullet;
   
-  for(i=0;i<BULLET_MAX;i++)
+  for(i=0;i<maxx;i++)
     {
       bullet->next = malloc(sizeof(bullet_t));
       bullet->fired=false;

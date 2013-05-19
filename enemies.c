@@ -1,6 +1,3 @@
-#define ENEMY_MAX 200
-
-
 void* initenemies(void)
 {
   void *first;
@@ -10,7 +7,7 @@ void* initenemies(void)
   enemy=malloc(sizeof(enemy_ll));
 
   first = enemy;
-  for(i=0;i<ENEMY_MAX;i++)
+  for(i=0;i<(maxx/2)*maxy;i++)
     {
       enemy->next=malloc(sizeof(enemy_ll));
       enemy->last = false;
@@ -57,10 +54,9 @@ void spawnenemy(enemy_ll *enemy)
       enemy = nextusableenemy(enemy);
       enemy->type=hash;
       enemy->sprite='#';
-      enemy->x=(rand()%(maxx/2));
+      enemy->x=(rand()%(maxx/2))+maxx/2;
       enemy->y=rand()%maxy;
       enemy->onscreen=true;
       mvprintw(enemy->y,enemy->x,"%c",enemy->sprite);
     }
 }
-

@@ -1,4 +1,3 @@
-
 #include <ncurses.h>
 #include <stdbool.h>
 #include <stdlib.h>
