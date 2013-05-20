@@ -12,13 +12,14 @@ void collisiondetect(bullet_t *bullet, enemy_ll *enemy)
 	{
 	  if(bullet==NULL)
 	    break;
-	  if((bullet->x==enemy->x)&&(bullet->y==enemy->y))
-	    {
-	      mvprintw(bullet->y,bullet->x," ");
-	      bullet->fired=false;
-	      enemy->onscreen=false;
-	      score++;
-	    }
+	  if(enemy->onscreen&&bullet->fired)
+	    if((bullet->x==enemy->x)&&(bullet->y==enemy->y))
+	      {
+		mvprintw(bullet->y,bullet->x," ");
+		bullet->fired=false;
+		enemy->onscreen=false;
+		score++;
+	      }
 	}
     }
 }
