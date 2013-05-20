@@ -33,6 +33,13 @@ void* nextbullet(bullet_t *bullet)           /*a tad un-needed but it might make
   return bullet;
 }
 
+void* nextusedbullet(bullet_t *bullet)
+{
+  for(;!bullet->fired;bullet=nextbullet(bullet));
+  return bullet;
+}
+
+
 void* nextfiredbullet(bullet_t *bullet)                       /*may need some tweaking*/
 {
   bullet=nextbullet(bullet);

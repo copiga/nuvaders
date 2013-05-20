@@ -1,6 +1,19 @@
-void collisiondetect(bullet_t bullets, enemy_ll enemies)
+void collisiondetect(bullet_t *bullet, enemy_ll *enemy)
 {
+  bullet_t *bulletbase = bullet;
   /*go through all active enemies, for each enemy go through all fired
     bullets, if bullet x and y == enemy x and y then bullet.fired=false and
     enemy not active, then score++*/
+  for(;enemy->next!=NULL;enemy=nextusedenemy(enemy))
+    {
+      for(bullet=bulletbase;bullet->next!=NULL;bullet=nextusedbullet(bullet))
+	{
+	  if((bullet->x==enemy->x)&&(bullet->y==enemy->y))
+	    {
+	      mvprintw(bullet->y,bullet->x," ");
+	      bullet->fired=false;
+	      enemy->onscreen=false;
+	    }
+	}
+    }
 }

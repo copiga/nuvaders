@@ -7,8 +7,8 @@ int gameloop(void)
   enemy = initenemies();
   bullet=initbullet();
   void *enemybase = enemy;
-  void *bulletbase = bullet;/*am i sure i understand pointers?*/
-  mvprintw(y,x,">");/*shall we see player in the beginning now?*/
+  void *bulletbase = bullet;
+  mvprintw(y,x,">");
   while((input=getch())!='q')
     {
       getmaxyx(stdscr,maxy,maxx);
@@ -33,6 +33,7 @@ int gameloop(void)
       inertia(bullet);/*makes bullets keep moving*/
       bulletedgedetect(bullet);/*stops bullets from leaving screen*/
       playeredgedetect();/*keeps player on screen*/
+      collisiondetect(bullet, enemy);
       spawnenemy(enemy);
     }
   bullet=bulletbase;

@@ -14,6 +14,7 @@
 #include "physics.c"
 #include "player.c"
 #include "enemies.c"
+#include "collisiondetect.c"
 
 void cleanexit(int signal)
 {

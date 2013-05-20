@@ -25,9 +25,16 @@ void* nextenemy(enemy_ll *enemy)
 
 void* nextusableenemy(enemy_ll *enemy)
 {
-  for(;enemy->onscreen;enemy=nextenemy(enemy));
+  for(;enemy->onscreen;enemy=nextenemy(enemy));/*TODO: make this memory safe!!!*/
   return enemy;
 }
+
+void* nextusedenemy(enemy_ll *enemy)
+{
+  for(;!enemy->onscreen;enemy=nextenemy(enemy));
+  return enemy;
+}
+
 
 void freeenemies(enemy_ll *enemy)
 {
