@@ -1,1 +1,1 @@
-int x,y,maxx,maxy;                /*these are global purely because they will be used everywhere*/
+int x,y,maxx,maxy,score;                /*these are global purely because they will be used everywhere*/

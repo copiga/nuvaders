@@ -25,17 +25,17 @@ void cleanexit(int signal)
 
 int main(void)
 {
-  int score;
   signal(SIGINT, cleanexit);
   
   initscr();
   raw();
   noecho();
-  halfdelay(1);
+  nodelay(stdscr,true);//  halfdelay(1);
   keypad(stdscr,true);
   getmaxyx(stdscr,maxy,maxx);
   y=maxy/2;
   x=maxx/4;
+  score=0;
   curs_set(0);
   score=gameloop();
   endwin();

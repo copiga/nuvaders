@@ -20,7 +20,10 @@ void* initenemies(void)
 
 void* nextenemy(enemy_ll *enemy)
 {
-  return enemy->next;
+  if(enemy->next==NULL)
+    return NULL;
+  else
+    return enemy->next;
 }
 
 void* nextusableenemy(enemy_ll *enemy)

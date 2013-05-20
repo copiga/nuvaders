@@ -29,13 +29,20 @@ void* nextusablebullet(bullet_t *bullet)      /*gives address of the next usable
 
 void* nextbullet(bullet_t *bullet)           /*a tad un-needed but it might make things easier to understand... maybe... i hope...*/
 {
-  bullet = bullet->next;
+  if(!bullet->last)
+    bullet = bullet->next;
+  else
+    return NULL;
   return bullet;
 }
 
 void* nextusedbullet(bullet_t *bullet)
 {
-  for(;!bullet->fired;bullet=nextbullet(bullet));
+  for(;!bullet->fired;bullet=nextbullet(bullet))
+    {
+      if(bullet==NULL)
+	return NULL;
+    }
   return bullet;
 }
 
