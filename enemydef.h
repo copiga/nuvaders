@@ -6,6 +6,13 @@ typedef enum enemytype_e
   }
   enemytype_e;
 
+struct enemyfire
+{
+    int bulletx;
+    int bullety;
+}
+    enemyfire
+
 typedef struct enemy_ll
 {
   enemytype_e type;
@@ -13,6 +20,8 @@ typedef struct enemy_ll
   int x;
   int y;
   bool last;
+  bool fired;
+  struct enemyfire fire  
   bool onscreen;
   struct enemy_ll *next;
 }
