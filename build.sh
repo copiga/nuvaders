@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-gcc main.c -lncurses
+gcc main.c -lncurses -o nuvaders
