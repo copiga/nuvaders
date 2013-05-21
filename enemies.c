@@ -59,7 +59,7 @@ void freeenemies(enemy_ll *enemy)
 
 void spawnenemy(enemy_ll *enemy)
 {
-  if(rand()%2==0)                                           /*some likelyish condition would be good*/
+    if(rand()%10==0)                                           /*some likelyish condition would be good*/
     {
       enemy = nextusableenemy(enemy);
       enemy->type=hash;

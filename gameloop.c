@@ -1,7 +1,6 @@
 int gameloop(void)
 {
   int input;
-  int score;
   static bullet_t *bullet;
   static enemy_ll *enemy;
   enemy = initenemies();
@@ -35,6 +34,8 @@ int gameloop(void)
       playeredgedetect();/*keeps player on screen*/
       collisiondetect(bullet, enemy);
       spawnenemy(enemy);
+      mvprintw(0,0,"%d",score);
+      
     }
   bullet=bulletbase;
   enemy=enemybase;
