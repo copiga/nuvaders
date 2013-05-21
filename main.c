@@ -51,7 +51,7 @@ void scoreadd(int score)
   FILE *scorefile;
   puts("please enter your name");
   scanf(" %s", name);
-  scorefile = fopen("nuvaders", "a");
+  scorefile = fopen("nuvaders scores", "a");
   fprintf(scorefile, "%s\t\t%d\n", name, score);
   fclose(scorefile);
 }
