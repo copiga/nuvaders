@@ -1,1 +1,3 @@
 compile with gcc main.c -lncurses
+
+this is the aggressive branch, it will have enemies that shoot at the player...
