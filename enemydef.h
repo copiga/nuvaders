@@ -11,7 +11,7 @@ struct enemyfire
     int bulletx;
     int bullety;
 }
-    enemyfire
+  enemyfire;
 
 typedef struct enemy_ll
 {
@@ -21,7 +21,7 @@ typedef struct enemy_ll
   int y;
   bool last;
   bool fired;
-  struct enemyfire fire  
+  struct enemyfire fire;
   bool onscreen;
   struct enemy_ll *next;
 }
