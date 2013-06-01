@@ -60,7 +60,9 @@ void freeenemies(enemy_ll *enemy)
 
 void spawnenemy(enemy_ll *enemy)
 {
-    if(rand()%100==0)                                           /*some likelyish condition would be good*/
+  enemy_ll *base;
+  base=enemy;
+    if(rand()%10==0)                                           /*some likelyish condition would be good*/
     {
       enemy = nextusableenemy(enemy);
       enemy->type=hash;
@@ -70,4 +72,11 @@ void spawnenemy(enemy_ll *enemy)
       enemy->onscreen=true;
       mvprintw(enemy->y,enemy->x,"%c",enemy->sprite);
     }
+    do
+      {
+	if(enemy->onscreen)
+	  mvprintw(enemy->y,enemy->x,"#");
+      }
+    while((enemy=nextenemy(enemy))!=NULL);
+    
 }
