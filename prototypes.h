@@ -17,3 +17,5 @@ void freeenemies(enemy_ll *enemy);
 void spawnenemy(enemy_ll *enemy);
 void scoreadd(int score);
 void collisiondetect(bullet_t *bullet, enemy_ll *enemy);
+void enemyfire(enemy_ll *enemy);
+void enemyfireinertia(enemy_ll *enemy);

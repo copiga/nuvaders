@@ -6,20 +6,19 @@ void collisiondetect(bullet_t *bullet, enemy_ll *enemy)
     enemy not active, then score++*/
   for(;enemy!=NULL;enemy=nextenemy(enemy))
     {
-      if(enemy==NULL)
+      if(enemy==NULL||!enemy->onscreen)
 	break;
-      for(bullet=bulletbase;bullet!=NULL;bullet=nextbullet(bullet))
+      for(bullet=bulletbase;bullet!=NULL&&bullet->fired;bullet=nextbullet(bullet))
 	{
 	  if(bullet==NULL)
 	    break;
-	  if(enemy->onscreen&&bullet->fired)
-	    if((bullet->x==enemy->x)&&(bullet->y==enemy->y))
-	      {
-		mvprintw(bullet->y,bullet->x," ");
-		bullet->fired=false;
-		enemy->onscreen=false;
-		score++;
-	      }
+	  if((bullet->x==enemy->x)&&(bullet->y==enemy->y))
+		{
+		  mvprintw(bullet->y,bullet->x," ");
+		  bullet->fired=false;
+		  enemy->onscreen=false;
+		  score++;
+		}
 	}
     }
 }

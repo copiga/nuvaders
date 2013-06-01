@@ -15,6 +15,7 @@
 #include "player.c"
 #include "enemies.c"
 #include "collisiondetect.c"
+#include "enemyfire.c"
 
 void cleanexit(int signal)
 {
@@ -32,7 +33,7 @@ int main(void)
     initscr();
     raw();
     noecho();
-    nodelay(stdscr,true);//  halfdelay(1);
+    halfdelay(1);    //    nodelay(stdscr,true);//  halfdelay(1);
     keypad(stdscr,true);
     getmaxyx(stdscr,maxy,maxx);
     y=maxy/2;

@@ -8,7 +8,7 @@ void* initbullet(void)                           /*returns the address of the fi
   bullet = malloc(sizeof(bullet_t));
   firstbullet=bullet;
   
-  for(i=0;i<maxx;i++)
+  for(i=0;i<maxx*maxy/2;i++)
     {
       bullet->next = malloc(sizeof(bullet_t));
       bullet->fired=false;

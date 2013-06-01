@@ -6,12 +6,12 @@ typedef enum enemytype_e
   }
   enemytype_e;
 
-struct enemyfire
+struct enemyfireinfo
 {
     int bulletx;
     int bullety;
 }
-  enemyfire;
+  enemyfireinfo;
 
 typedef struct enemy_ll
 {
@@ -21,7 +21,7 @@ typedef struct enemy_ll
   int y;
   bool last;
   bool fired;
-  struct enemyfire fire;
+  struct enemyfireinfo fire;
   bool onscreen;
   struct enemy_ll *next;
 }

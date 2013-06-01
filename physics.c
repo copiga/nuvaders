@@ -1,8 +1,5 @@
 void inertia(bullet_t *bullet)         
 {
-  static int i=0;
-  i++;
-  
   for(;!bullet->last;bullet=nextbullet(bullet))
     {
       if(bullet->fired)

@@ -33,9 +33,10 @@ int gameloop(void)
       bulletedgedetect(bullet);/*stops bullets from leaving screen*/
       playeredgedetect();/*keeps player on screen*/
       collisiondetect(bullet, enemy);
+      enemyfire(enemy);
+      enemyfireinertia(enemy);
       spawnenemy(enemy);
-      mvprintw(0,0,"%d",score);
-      
+      mvprintw(0,0,"%d",score);      
     }
   bullet=bulletbase;
   enemy=enemybase;
