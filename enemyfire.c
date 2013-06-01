@@ -3,7 +3,7 @@ void enemyfire(enemy_ll *enemy)
   do
     {
       if(enemy->onscreen)
-	if((!enemy->fired)/*&&(rand()%1234==0)*/)
+	if((!enemy->fired)&&(rand()%3==0))
 	  {
 	    enemy->fired=true;
 	    enemy->fire.bulletx=enemy->x-1;

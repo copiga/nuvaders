@@ -8,7 +8,8 @@ int gameloop(void)
   void *enemybase = enemy;
   void *bulletbase = bullet;
   mvprintw(y,x,">");
-  while((input=getch())!='q')
+  lives=3;
+  while(((input=getch())!='q')&&lives>0)
     {
       getmaxyx(stdscr,maxy,maxx);
       switch(input)
@@ -36,7 +37,7 @@ int gameloop(void)
       enemyfire(enemy);
       enemyfireinertia(enemy);
       spawnenemy(enemy);
-      mvprintw(0,0,"%d",score);      
+      mvprintw(0,0,"%d\n%d",score,lives);      
     }
   bullet=bulletbase;
   enemy=enemybase;

@@ -53,6 +53,6 @@ void scoreadd(int score)
   puts("please enter your name");
   scanf(" %s", name);
   scorefile = fopen("nuvaders scores", "a");
-  fprintf(scorefile, "%s\t\t%d\n", name, score);
+  fprintf(scorefile, "%s\t\t%d\t%d\n", name, score, lives);
   fclose(scorefile);
 }
