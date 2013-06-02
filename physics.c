@@ -43,15 +43,27 @@ void playeredgedetect(void)
 
 void enemyedgedetect(enemy_ll *enemy)
 {
-  for(;enemy->last;enemy=nextenemy(enemy))
-    {
-      if(enemy->onscreen)
+  for(;!enemy->last;enemy=nextenemy(enemy))
+    if(enemy->onscreen)
+      if((enemy->x<0)||(enemy->x>maxx)||(enemy->y<0)||(enemy->y>maxy))
 	{
-	  if((enemy->x<0)||(enemy->x>maxx)||(enemy->y<0)||(enemy->y>maxy))
-	    {
-	      mvprintw(enemy->y,enemy->x," ");
-	      enemy->onscreen=false;
-	    }
+	  mvprintw(enemy->y,enemy->x," ");
+	  enemy->onscreen=false;
 	}
-    }
+}
+
+void enemybulletedgedetect(enemy_ll *enemy)
+{
+  mvprintw(4,4,"x");
+  static int debug;
+  if(!(debug>0))
+    debug=1;
+  for(;!enemy->last;enemy=nextenemy(enemy))
+    if(enemy->fired)
+      if((enemy->fire.bulletx<0)||(enemy->fire.bulletx>maxx))
+	{
+	  debug=debug+1;
+	  mvprintw(3,3,"%d", debug);
+	  enemy->fired=false;
+	}
 }

@@ -4,7 +4,6 @@ this is the aggressive branch, it will have enemies that shoot at the
 player...
 
 TODO:
-	edge detection on enemy fire;
 	fix edge detection on player(when she goes into uppest part(y=0)
 	dissapears;
 	be coherent!

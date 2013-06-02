@@ -19,3 +19,4 @@ void scoreadd(int score);
 void collisiondetect(bullet_t *bullet, enemy_ll *enemy);
 void enemyfire(enemy_ll *enemy);
 void enemyfireinertia(enemy_ll *enemy);
+void enemybulletedgedetect(enemy_ll *enemy);

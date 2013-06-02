@@ -37,6 +37,7 @@ int gameloop(void)
       enemyfire(enemy);
       enemyfireinertia(enemy);
       spawnenemy(enemy);
+      enemybulletedgedetect(enemy);
       mvprintw(0,0,"%d\n%d",score,lives);      
     }
   bullet=bulletbase;
