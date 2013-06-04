@@ -26,7 +26,7 @@ void cleanexit(int signal)
 
 int main(void)
 {
-    int score;
+    int *score;
     
     signal(SIGINT, cleanexit);
   
@@ -40,9 +40,12 @@ int main(void)
     x=maxx/4;
     score=0;
     curs_set(0);
-    score=gameloop();
+    score=malloc(sizeof(int));
+    srand((int)score & ((int)&score));
+    *score=gameloop();
     endwin();
-    scoreadd(score);
+    scoreadd(*score);
+    free(score);
     return 0;
 }
 

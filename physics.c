@@ -54,16 +54,10 @@ void enemyedgedetect(enemy_ll *enemy)
 
 void enemybulletedgedetect(enemy_ll *enemy)
 {
-  mvprintw(4,4,"x");
-  static int debug;
-  if(!(debug>0))
-    debug=1;
   for(;!enemy->last;enemy=nextenemy(enemy))
     if(enemy->fired)
       if((enemy->fire.bulletx<0)||(enemy->fire.bulletx>maxx))
 	{
-	  debug=debug+1;
-	  mvprintw(3,3,"%d", debug);
 	  enemy->fired=false;
 	}
 }
